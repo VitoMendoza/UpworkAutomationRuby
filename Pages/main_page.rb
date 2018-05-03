@@ -16,14 +16,13 @@ class MainPage
   # Method used to enter a keyword into the search field.
   #
   # ID for search field is defined as "q".
-  # @param keyword [String] keyword to search.
+  # @param keyword [String] Keyword to search.
   def enter_keyword(keyword)
     $driver.find_element(:id, 'q').send_keys(keyword)
   end
 
-  # Method used to press enter in to search field.
+  # Method used to press enter into search field.
   #
-  # ID for search field is defined as "q".
   def press_search_submit
     $driver.action.send_keys(:return).perform
   end
