@@ -1,9 +1,9 @@
-require './Assertions/UpworkCoreMethods'
+require './Assertions/upwork_core_methods'
+require './Assertions/common_steps'
 
 
 class MainPage
   
-
   ########################################## <<< Base Methods and Web Elements Selectors >>> #################################################
 
   # Method used to select the freelancer option into the search field.
@@ -16,8 +16,7 @@ class MainPage
   # Method used to enter a keyword into the search field.
   #
   # ID for search field is defined as "q".
-  # Parameters: 
-  # String - keyword 
+  # @param keyword [String] keyword to search.
   def enter_keyword(keyword)
     $driver.find_element(:id, 'q').send_keys(keyword)
   end
@@ -28,6 +27,7 @@ class MainPage
   def press_search_submit
     $driver.action.send_keys(:return).perform
   end
+
   #############################################################################################################################################
 
   ############################################################ <<< Steps Methods >>> ##########################################################
@@ -36,6 +36,7 @@ class MainPage
   #
   # Click on down arrow and click on Find Freelancers option.
   # Log action.
+  # @param stepNum [Integer] Step number to print out.
   def select_search_freelancer(stepNum)
     begin
       puts "#{stepNum}. Focus onto 'Find freelancers."
@@ -51,13 +52,13 @@ class MainPage
   #
   # I save the keyword in a global variable to use later.
   # Log action.
+  # @param stepNum [Integer] Step number to print out.
   def insert_text_search_field(value, stepNum)
-
     puts "#{stepNum}. Insert '#{value}' into the search input right from the dropdown and submit it (press enter)."
     enter_keyword(value)
     $variables['keyword'] = value
     press_search_submit()
-
+    CommonSteps::wait(10)
   end
   #############################################################################################################################################
 

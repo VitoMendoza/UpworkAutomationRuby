@@ -10,15 +10,14 @@ class FindFreelancer
 
     # Test Case: Find Freelancer
     #
-    # Parameters: 
-    # String - Browser
-    # String - Keyword
+    # @param browser [String] Browser to use.
+    # @param keyword [String] keyword to search.
     def find_freelancer(browser, keyword)
 
+        browser_steps = BrowserSteps.new
         main_page = MainPage.new
         search_results_page = SearchResultsPage.new
         profile_page = ProfilePage.new
-        browser_steps = BrowserSteps.new
 
         puts '- Test "001 Find Freelancer" Started...'
         browser_steps.run_browser(browser)

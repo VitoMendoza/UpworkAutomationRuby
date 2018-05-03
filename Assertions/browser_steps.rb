@@ -5,10 +5,6 @@ require 'selenium-webdriver'
 
 class BrowserSteps
 
-# Selenium::WebDriver::Chrome.driver_path = ""
-# caps = Selenium::WebDriver::Remote::Capabilities.chrome(:chrome_options => {detach: true})
-# $driver = Selenium::WebDriver.for :chrome, desired_capabilities: caps 
-# driver.get ("https://www.upwork.com")
 
 # Select one browser to run the test
 # 
@@ -27,22 +23,22 @@ class BrowserSteps
 		caps = Selenium::WebDriver::Remote::Capabilities.firefox(:firefox_options => {detach: true})
 		$driver = Selenium::WebDriver.for :firefox, desired_capabilities: caps 
 		
-	elsif "#{browser}" == "edge"
-		Selenium::WebDriver::Edge.driver_path = "../Drivers/MicrosoftWebDriver.exe"
-		caps = Selenium::WebDriver::Remote::Capabilities.explorer(:explorer_options => {detach: true})
-		$driver = Selenium::WebDriver.for :edge, desired_capabilities: caps
+	# elsif "#{browser}" == "edge"
+	# 	Selenium::WebDriver::Edge.driver_path = "./Drivers/MicrosoftWebDriver.exe"
+	# 	caps = Selenium::WebDriver::Remote::Capabilities.edge(:edge_options => {detach: true})
+	# 	$driver = Selenium::WebDriver.for :edge, desired_capabilities: caps
 		
-	elsif "#{browser}" == "opera"
-		Selenium::WebDriver::Opera.driver_path = "../Drivers/operadriver.exe"
-		caps = Selenium::WebDriver::Remote::Capabilities.opera(:opera_options => {detach: true})
-		$driver = Selenium::WebDriver.for :opera, desired_capabilities: caps
+	# elsif "#{browser}" == "opera"
+	# 	Selenium::WebDriver::Opera.driver_path = "./Drivers/operadriver.exe"
+	# 	caps = Selenium::WebDriver::Remote::Capabilities.opera(:opera_options => {detach: true})
+	# 	$driver = Selenium::WebDriver.for :opera, desired_capabilities: caps
 		
 	elsif
-		caps = Selenium::WebDriver::Remote::Capabilities.poltergeist(:poltergeist_options => {detach: true})
-		$driver = Selenium::WebDriver.for :poltergeist, desired_capabilities: caps
+		Selenium::WebDriver::Chrome.driver_path = "./Drivers/chromedriver.exe"
+		caps = Selenium::WebDriver::Remote::Capabilities.chrome(:chrome_options => {detach: true})
+		$driver = Selenium::WebDriver.for :chrome, desired_capabilities: caps
 	    
 	end
-	# browser = Capybara.current_session.driver.browser
 	$driver.manage.window.maximize
  end
 

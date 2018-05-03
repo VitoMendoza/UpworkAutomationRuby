@@ -19,7 +19,7 @@ BASE_URL = 'https://www.upwork.com'
 
 # Execute test case
 	find_freelancer = FindFreelancer.new
-	find_freelancer.find_freelancer("chrome", "vito")
+	find_freelancer.find_freelancer("firefox", "vito")
 
 
 # Close the browser and save the last page visited after execution test. 

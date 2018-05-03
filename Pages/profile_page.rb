@@ -1,4 +1,4 @@
-require './Assertions/UpworkCoreMethods'
+require './Assertions/upwork_core_methods'
 
 class ProfilePage
 
@@ -61,6 +61,8 @@ class ProfilePage
 
   # Method used to compare saved profiles with the actual profile.
   #
+  # @param freelancerProfilesList [Hash of hashes] List of saved freelancers from results page.
+  # @param profile [Hash of strings] Actual profile.
   def compare_profiles(freelancerProfilesList, profile)
     if UpworkCoreMethods::compare_profile(freelancerProfilesList, profile)
       return true
@@ -70,6 +72,8 @@ class ProfilePage
 
   # Method used to verify if the actual profile contain the keyword.
   #
+  # @param profile [Hash of strings] Actual profile.
+  # @param keyword [String] Keyword to search.
   def contain_keyword(profile, keyword)
     if UpworkCoreMethods::verify_keyword(profile, keyword)
       return true
@@ -84,6 +88,7 @@ class ProfilePage
   #
   # Expect to get into freelancer's profile.
   # Log action.
+  # @param stepNum [Integer] Step number to print out.
   def verify_profile_page_url(stepNum)
     puts "#{stepNum}. Get into that freelancer's profile."
     if is_this_the_profile_page()
@@ -97,6 +102,7 @@ class ProfilePage
   # This step was made to compare the actual profile with the stored profiles from search results
   #
   # Stored profiles should be saved in $variables["freelancersList"] and the actual browser page should be freelancer profile
+  # @param stepNum [Integer] Step number to print out.
   # @return stdout text
   # - true: Yes it is, the profile of #{name} contains the keyword '#{keyword}'.
   # - false: This profile does not contain the keyword '#{keyword}'.
@@ -124,6 +130,7 @@ class ProfilePage
 
   # This step was made to search the keyword in the freelancer profile
   #
+  # @param stepNum [Integer] Step number to print out.
   # @return stdout text
   # - true: Yes it is, the profile of #{name} contains the keyword '#{keyword}'.
   # - false: This profile does not contain the keyword '#{keyword}'.

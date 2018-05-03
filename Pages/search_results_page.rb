@@ -1,4 +1,4 @@
-require './Assertions/UpworkCoreMethods'
+require './Assertions/upwork_core_methods'
 
 class SearchResultsPage
  
@@ -90,6 +90,7 @@ class SearchResultsPage
   #
   # Getting and saving all attributes from the search results in $variables["freelancersList"].
   # Log action.
+  # @param stepNum [Integer] Step number to print out.
   def save_search_results(stepNum)
     begin
       puts "#{stepNum}. Save search results to compare."
@@ -109,6 +110,7 @@ class SearchResultsPage
   # Create 2 Lists of results. Results which contains the keyword and results without the keyword.
   # Both lists are saved in $variables.
   # Log action.
+  # @param stepNum [Integer] Step number to print out.
   def search_keyword_in_results(stepNum)
     begin
       puts "#{stepNum}. Make sure at least one attribute (title, overview, skills, etc) of each item (found freelancer) from parsed search results contains `<keyword>` Log in stdout which freelancers and attributes contain `<keyword>` and which do not."
@@ -136,6 +138,7 @@ class SearchResultsPage
   # Generate a random number between 1 and search results length.
   # Click on the element by random index.
   # Log action.
+  # @param stepNum [Integer] Step number to print out.
   def getin_random_result(stepNum)
     begin
       puts "#{stepNum}. Click on random freelancer's title."

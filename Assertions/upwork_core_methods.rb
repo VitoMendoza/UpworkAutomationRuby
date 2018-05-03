@@ -129,5 +129,3 @@ module UpworkCoreMethods
         return skills
     end
 end
-
-# World(UpworkSupportHelpers)
