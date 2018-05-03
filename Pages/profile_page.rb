@@ -7,10 +7,7 @@ class ProfilePage
   # Method used to verify if this is the profile page by the url given.
   #
   def is_this_the_profile_page()
-    if $driver.current_url.include? $pages['profilePage']
-      return true
-    end
-    return false
+    return $driver.current_url.include? $pages['profilePage']
   end
 
   # Method used to get the freelancer profile from the page web elements.
@@ -64,10 +61,7 @@ class ProfilePage
   # @param freelancerProfilesList [Hash of hashes] List of saved freelancers from results page.
   # @param profile [Hash of strings] Actual profile.
   def compare_profiles(freelancerProfilesList, profile)
-    if UpworkCoreMethods::compare_profile(freelancerProfilesList, profile)
-      return true
-    end
-    return false
+    return UpworkCoreMethods::compare_profile(freelancerProfilesList, profile)
   end
 
   # Method used to verify if the actual profile contain the keyword.
@@ -75,10 +69,7 @@ class ProfilePage
   # @param profile [Hash of strings] Actual profile.
   # @param keyword [String] Keyword to search.
   def contain_keyword(profile, keyword)
-    if UpworkCoreMethods::verify_keyword(profile, keyword)
-      return true
-    end
-    return false
+    return UpworkCoreMethods::verify_keyword(profile, keyword)
   end
   ##############################################################################################################################################
 
